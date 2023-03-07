@@ -42,11 +42,13 @@ const ProductsApp = () => {
     <>
       <Routes>
         <Route path='/' element={<HomePage productList={productList} />} />
-        <Route path='/products/:id' element={<ProductDetailPage productList={productList} />} />
-        <Route
-          path='/products/edit/:id'
-          element={<EditProductPage productList={productList} updateProduct={updateProduct} />}
-        />
+        <Route path='products'>
+          <Route path=':id' index element={<ProductDetailPage productList={productList} />} />
+          <Route
+            path=':id/edit'
+            element={<EditProductPage productList={productList} updateProduct={updateProduct} />}
+          />
+        </Route>
       </Routes>
     </>
   );
