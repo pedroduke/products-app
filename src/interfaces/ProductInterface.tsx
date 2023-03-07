@@ -1,12 +1,9 @@
 interface ProductInterface {
-  id: string;
+  id: string | undefined;
+  price: number;
   name: string;
-  data: {
-    year: number;
-    price: number;
-    'CPU model': string;
-    'Hard disk size': string;
-  };
+  color: string;
+  description: string;
 }
 
 export default ProductInterface;

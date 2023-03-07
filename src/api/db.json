@@ -1,0 +1,88 @@
+{
+  "products": [
+    {
+      "id": "1",
+      "name": "Google Pixel 6 Pro",
+      "price": 10,
+      "color": "red",
+      "description": ""
+    },
+    {
+      "id": "2",
+      "name": "Apple iPhone 12 Mini, 256GB",
+      "price": 10,
+      "color": "red",
+      "description": ""
+    },
+    {
+      "id": "3",
+      "name": "Apple iPhone 12 Pro Max",
+      "price": 10,
+      "color": "red",
+      "description": ""
+    },
+    {
+      "id": "4",
+      "name": "Apple iPhone 11, 64GB",
+      "price": 10,
+      "color": "red",
+      "description": ""
+    },
+    {
+      "id": "5",
+      "name": "Samsung Galaxy Z Fold2",
+      "price": 10,
+      "color": "red",
+      "description": ""
+    },
+    {
+      "id": "6",
+      "name": "Apple AirPods",
+      "price": 10,
+      "color": "red",
+      "description": ""
+    },
+    {
+      "id": "7",
+      "name": "Apple MacBook Pro 16",
+      "price": 10,
+      "color": "red",
+      "description": ""
+    },
+    {
+      "id": "8",
+      "name": "Apple Watch Series 8",
+      "price": 10,
+      "color": "red",
+      "description": ""
+    },
+    {
+      "id": "9",
+      "name": "Beats Studio3 Wireless",
+      "price": 10,
+      "color": "red",
+      "description": ""
+    },
+    {
+      "id": "10",
+      "name": "Apple iPad Mini 5th Gen",
+      "price": 10,
+      "color": "red",
+      "description": ""
+    },
+    {
+      "id": "11",
+      "name": "Apple iPad Mini 5th Gen",
+      "price": 10,
+      "color": "red",
+      "description": ""
+    },
+    {
+      "id": "12",
+      "name": "Apple iPad Air",
+      "price": 10,
+      "color": "red",
+      "description": ""
+    }
+  ]
+}
