@@ -8,6 +8,7 @@ type ProductTypes = {
 const ProductsPage = ({ productList }: ProductTypes) => {
   return (
     <>
+      <h2>Products List</h2>
       {productList.length > 0 ? (
         <ul>
           {productList.map((product) => {

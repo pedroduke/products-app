@@ -1,24 +1,32 @@
 import { Link, useParams } from 'react-router-dom';
+import { useGetProductByIdQuery } from '../app/api';
 
-import Product from '../interfaces/Product';
-
-type ProductTypes = {
-  productList: Product[];
-};
-
-const ProductDetailPage = ({ productList }: ProductTypes) => {
+const ProductDetailPage = () => {
   const { id } = useParams();
-  const product = productList.find((product) => product.id === id);
+
+  const { data, isLoading, isError, refetch } = useGetProductByIdQuery(id!, {
+    refetchOnMountOrArgChange: true,
+  });
+
+  if (isLoading) {
+    return <h2>Loading...</h2>;
+  }
+
+  if (isError || !data) {
+    return <div>Something went wrong</div>;
+  }
 
   return (
     <div>
-      <h1>Product Detail</h1>
-      <div>Name: {product!.name}</div>
-      <div>Price: {product!.price}</div>
-      <div>Color: {product!.color}</div>
-      <div>Description: {product!.description}</div>
-      <Link to={`/products/edit/${product!.id}`}>Edit</Link>
-      <Link to={'/'}>Home Page</Link>
+      <h2>Product Detail</h2>
+      <Link to={`/products/edit/${data.id}`}>Edit</Link>
+      <div>Name: {data.name}</div>
+      <div>Price: {data.price}</div>
+      <div>Color: {data.color}</div>
+      <div>Description: {data.description}</div>
+      <Link to={'/'} onClick={refetch}>
+        Home Page
+      </Link>
     </div>
   );
 };

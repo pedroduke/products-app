@@ -6,46 +6,33 @@ import EditProduct from './components/EditProduct';
 
 import Product from './interfaces/Product';
 
-import useStorageOrFetch from './hooks/useStorageOrFetch';
+import { useGetProductsQuery, useUpdateProductMutation } from './app/api';
 
 const ProductsApp = () => {
-  const [productList, setProductList, isLoading, error] = useStorageOrFetch<Product[]>(
-    'http://localhost:5000/products',
-    'productList'
-  );
+  const { data, isLoading, isError, refetch } = useGetProductsQuery();
+
+  const [updateProduct] = useUpdateProductMutation();
 
   if (isLoading) {
-    return <h4>Loading...</h4>;
+    return <h4>Loading Products...</h4>;
   }
 
-  if (!!error) {
-    return <h4>{error}</h4>;
+  if (isError || !data) {
+    return <h4>Something went wrong</h4>;
   }
 
-  const updateProduct = (productDetails: Product) => {
-    if (productList) {
-      const updateProductList: Product[] = productList.map((product) => {
-        if (product.id !== productDetails.id) {
-          return product;
-        }
-        return productDetails;
-      });
-      setProductList(updateProductList);
-    }
+  const handleUpdate = (productDetails: Product) => {
+    updateProduct({ data: productDetails });
   };
 
   return (
     <>
       <Routes>
-        <Route path='/' element={<ProductsPage productList={productList!} />} />
-        <Route
-          path='products/:id'
-          index
-          element={<ProductDetailPage productList={productList!} />}
-        />
+        <Route path='/' element={<ProductsPage productList={data} />} />
+        <Route path='products/:id' index element={<ProductDetailPage />} />
         <Route
           path='products/edit/:id'
-          element={<EditProduct productList={productList!} updateProduct={updateProduct} />}
+          element={<EditProduct productList={data} handleUpdate={handleUpdate} refetch={refetch} />}
         />
       </Routes>
     </>

@@ -5,10 +5,11 @@ import Product from '../interfaces/Product';
 
 type ProductTypes = {
   productList: Product[];
-  updateProduct: (productDetails: Product) => void;
+  handleUpdate: (productDetails: Product) => void;
+  refetch: () => void;
 };
 
-const EditProduct = ({ productList, updateProduct }: ProductTypes) => {
+const EditProduct = ({ productList, handleUpdate, refetch }: ProductTypes) => {
   const navigate = useNavigate();
   const { id } = useParams();
   const product = productList.find((product) => product.id === id);
@@ -28,13 +29,14 @@ const EditProduct = ({ productList, updateProduct }: ProductTypes) => {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    updateProduct(productDetails);
+    handleUpdate(productDetails);
     navigate(`/products/${product!.id}`);
+    refetch();
   };
 
   return (
     <div>
-      <h1>Product Detail</h1>
+      <h2>Edit Product Detail</h2>
       <form onSubmit={handleSubmit}>
         <div>
           <label htmlFor='name'>Name:</label>

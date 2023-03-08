@@ -11,9 +11,11 @@
     "start:dev": "concurrently --kill-others \"npm run dev\" \"npm run server\""
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^1.9.3",
     "json-server": "^0.17.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-redux": "^8.0.5",
     "react-router-dom": "^6.8.2"
   },
   "devDependencies": {
