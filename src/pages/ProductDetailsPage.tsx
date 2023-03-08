@@ -9,25 +9,41 @@ const ProductDetailPage = () => {
   });
 
   if (isLoading) {
-    return <h2>Loading...</h2>;
+    return <h4 className='info'>Loading...</h4>;
   }
 
   if (isError || !data) {
-    return <div>Something went wrong</div>;
+    return <h4 className='info'>Something went wrong</h4>;
   }
 
   return (
-    <div>
-      <h2>Product Details</h2>
-      <Link to={`/products/edit/${data.id}`}>Edit</Link>
-      <div>Name: {data.name}</div>
-      <div>Price: {data.price}</div>
-      <div>Color: {data.color}</div>
-      <div>Description: {data.description}</div>
-      <Link to={'/'} onClick={refetch}>
-        Home Page
-      </Link>
-    </div>
+    <>
+      <h2 className='header__subtitle'>Product Details</h2>
+      <div className='products'>
+        <div className='products__card'>
+          <Link to={`/products/edit/${data.id}`} className='products__card--details'>
+            Edit
+          </Link>
+          <div className='products__wrapper'>
+            <div>Name:</div>
+            <span>{data.name}</span>
+            <div>Price:</div>
+            <span>{data.price}$</span>
+            <div>Color:</div>
+            <span>{data.color}</span>
+            <div>Description:</div>
+            <span>{data.description}</span>
+          </div>
+          <Link
+            to={'/'}
+            onClick={refetch}
+            className='products__card--details products__card--details--left'
+          >
+            Home Page
+          </Link>
+        </div>
+      </div>
+    </>
   );
 };
 

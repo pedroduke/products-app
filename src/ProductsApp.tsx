@@ -14,11 +14,11 @@ const ProductsApp = () => {
   const [updateProduct] = useUpdateProductMutation();
 
   if (isLoading) {
-    return <h4>Loading Products...</h4>;
+    return <h4 className='info'>Loading Products...</h4>;
   }
 
   if (isError || !data) {
-    return <h4>Something went wrong</h4>;
+    return <h4 className='info'>Something went wrong</h4>;
   }
 
   const handleUpdate = (productDetails: Product) => {
