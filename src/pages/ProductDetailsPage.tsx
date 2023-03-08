@@ -17,7 +17,7 @@ const ProductDetailPage = ({ productList }: ProductTypes) => {
       <div>Price: {product!.price}</div>
       <div>Color: {product!.color}</div>
       <div>Description: {product!.description}</div>
-      <Link to={`/products/${product!.id}/edit`}>Edit</Link>
+      <Link to={`/products/edit/${product!.id}`}>Edit</Link>
       <Link to={'/'}>Home Page</Link>
     </div>
   );

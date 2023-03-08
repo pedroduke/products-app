@@ -5,7 +5,7 @@ type ProductTypes = {
   productList: Product[];
 };
 
-const HomePage = ({ productList }: ProductTypes) => {
+const ProductsPage = ({ productList }: ProductTypes) => {
   return (
     <>
       {productList.length > 0 ? (
@@ -26,4 +26,4 @@ const HomePage = ({ productList }: ProductTypes) => {
   );
 };
 
-export default HomePage;
+export default ProductsPage;
