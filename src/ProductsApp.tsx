@@ -1,4 +1,4 @@
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 
 import ProductsPage from './pages/ProductsPage';
 import ProductDetailPage from './pages/ProductDetailsPage';
@@ -34,6 +34,7 @@ const ProductsApp = () => {
           path='products/edit/:id'
           element={<EditProduct productList={data} handleUpdate={handleUpdate} refetch={refetch} />}
         />
+        <Route path='*' element={<Navigate to='/' />} />
       </Routes>
     </>
   );
