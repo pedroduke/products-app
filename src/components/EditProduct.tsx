@@ -1,14 +1,14 @@
 import { useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 
-import ProductInterface from '../interfaces/ProductInterface';
+import Product from '../interfaces/Product';
 
 type ProductTypes = {
-  productList: ProductInterface[];
-  updateProduct: (productDetails: ProductInterface) => void;
+  productList: Product[];
+  updateProduct: (productDetails: Product) => void;
 };
 
-const ProductDetailPage = ({ productList, updateProduct }: ProductTypes) => {
+const EditProduct = ({ productList, updateProduct }: ProductTypes) => {
   const navigate = useNavigate();
   const { id } = useParams();
   const product = productList.find((product) => product.id === id);
@@ -19,11 +19,11 @@ const ProductDetailPage = ({ productList, updateProduct }: ProductTypes) => {
   const [description, setDescription] = useState(product!.description);
 
   const productDetails = {
-    id: id,
-    name: name,
-    price: price,
-    color: color,
-    description: description,
+    id,
+    name,
+    price,
+    color,
+    description,
   };
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -67,4 +67,4 @@ const ProductDetailPage = ({ productList, updateProduct }: ProductTypes) => {
   );
 };
 
-export default ProductDetailPage;
+export default EditProduct;

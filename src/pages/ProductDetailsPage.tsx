@@ -1,9 +1,9 @@
-import { Link, useParams, useNavigate } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
-import ProductInterface from '../interfaces/ProductInterface';
+import Product from '../interfaces/Product';
 
 type ProductTypes = {
-  productList: ProductInterface[];
+  productList: Product[];
 };
 
 const ProductDetailPage = ({ productList }: ProductTypes) => {
@@ -17,7 +17,7 @@ const ProductDetailPage = ({ productList }: ProductTypes) => {
       <div>Price: {product!.price}</div>
       <div>Color: {product!.color}</div>
       <div>Description: {product!.description}</div>
-      <Link to={`/products/edit/${product!.id}`}>view details</Link>
+      <Link to={`/products/edit/${product!.id}`}>Edit</Link>
       <Link to={'/'}>Home Page</Link>
     </div>
   );
