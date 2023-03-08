@@ -12,12 +12,12 @@ const ProductDetailPage = ({ productList }: ProductTypes) => {
 
   return (
     <div>
-      <h1>Product Detail</h1>
+      <h2>Product Details</h2>
+      <Link to={`/products/edit/${product!.id}`}>Edit</Link>
       <div>Name: {product!.name}</div>
       <div>Price: {product!.price}</div>
       <div>Color: {product!.color}</div>
       <div>Description: {product!.description}</div>
-      <Link to={`/products/edit/${product!.id}`}>Edit</Link>
       <Link to={'/'}>Home Page</Link>
     </div>
   );

@@ -34,7 +34,7 @@ const EditProduct = ({ productList, updateProduct }: ProductTypes) => {
 
   return (
     <div>
-      <h1>Product Detail</h1>
+      <h2>Edit Product Details</h2>
       <form onSubmit={handleSubmit}>
         <div>
           <label htmlFor='name'>Name:</label>
