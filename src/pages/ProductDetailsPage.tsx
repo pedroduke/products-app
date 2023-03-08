@@ -12,13 +12,27 @@ const ProductDetailPage = ({ productList }: ProductTypes) => {
 
   return (
     <div>
-      <h1>Product Detail</h1>
-      <div>Name: {product!.name}</div>
-      <div>Price: {product!.price}</div>
-      <div>Color: {product!.color}</div>
-      <div>Description: {product!.description}</div>
-      <Link to={`/products/edit/${product!.id}`}>Edit</Link>
-      <Link to={'/'}>Home Page</Link>
+      <h2 className='header__subtitle'>Product Details</h2>
+      <div className='products'>
+        <div className='products__card'>
+          <Link to={`/products/edit/${product!.id}`} className='products__card--details'>
+            Edit
+          </Link>
+          <div className='products__wrapper'>
+            <div>Name:</div>
+            <span>{product!.name}</span>
+            <div>Price:</div>
+            <span>{product!.price}$</span>
+            <div>Color:</div>
+            <span>{product!.color}</span>
+            <div>Description:</div>
+            <span>{product!.description}</span>
+          </div>
+          <Link to={'/'} className='products__card--details products__card--details--left'>
+            Home Page
+          </Link>
+        </div>
+      </div>
     </div>
   );
 };

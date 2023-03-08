@@ -1,4 +1,4 @@
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 
 import ProductsPage from './pages/ProductsPage';
 import ProductDetailPage from './pages/ProductDetailsPage';
@@ -15,11 +15,11 @@ const ProductsApp = () => {
   );
 
   if (isLoading) {
-    return <h4>Loading...</h4>;
+    return <h4 className='info'>Loading...</h4>;
   }
 
   if (!!error) {
-    return <h4>{error}</h4>;
+    return <h4 className='info'>{error}</h4>;
   }
 
   const updateProduct = (productDetails: Product) => {
@@ -47,6 +47,7 @@ const ProductsApp = () => {
           path='products/edit/:id'
           element={<EditProduct productList={productList!} updateProduct={updateProduct} />}
         />
+        <Route path='*' element={<Navigate to='/' />} />
       </Routes>
     </>
   );

@@ -8,13 +8,16 @@ type ProductTypes = {
 const ProductsPage = ({ productList }: ProductTypes) => {
   return (
     <>
+      <h2 className='header__subtitle'>Products List</h2>
       {productList.length > 0 ? (
-        <ul>
+        <ul className='products'>
           {productList.map((product) => {
             return (
-              <li key={product.id}>
-                <p>{product.name}</p>
-                <Link to={`/products/${product.id}`}>view details</Link>
+              <li key={product.id} className='products__card'>
+                <p className='products__card--name'>{product.name}</p>
+                <Link to={`/products/${product.id}`} className='products__card--details'>
+                  view details
+                </Link>
               </li>
             );
           })}

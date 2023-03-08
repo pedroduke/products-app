@@ -34,35 +34,53 @@ const EditProduct = ({ productList, updateProduct }: ProductTypes) => {
 
   return (
     <div>
-      <h1>Product Detail</h1>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor='name'>Name:</label>
-          <input type='text' id='name' value={name} onChange={(e) => setName(e.target.value)} />
-        </div>
-        <div>
-          <label htmlFor='price'>Price:</label>
-          <input
-            type='number'
-            id='price'
-            value={price}
-            onChange={(e) => setPrice(parseInt(e.target.value))}
-          />
-        </div>
-        <div>
-          <label htmlFor='color'>color:</label>
-          <input type='text' id='color' value={color} onChange={(e) => setColor(e.target.value)} />
-        </div>
-        <div>
-          <label htmlFor='description'>Description:</label>
-          <textarea
-            id='description'
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
-          />
-        </div>
-        <button type='submit'>Save</button>
-      </form>
+      <h2 className='header__subtitle'>Edit Product Details</h2>
+      <div className='products'>
+        <form className='products__card' onSubmit={handleSubmit}>
+          <div className='products__wrapper'>
+            <label htmlFor='name'>Name:</label>
+            <input
+              className='products__input'
+              type='text'
+              id='name'
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+            />
+          </div>
+          <div className='products__wrapper'>
+            <label htmlFor='price'>Price:</label>
+            <input
+              className='products__input'
+              type='number'
+              id='price'
+              value={price}
+              onChange={(e) => setPrice(parseInt(e.target.value))}
+            />
+          </div>
+          <div className='products__wrapper'>
+            <label htmlFor='color'>Color:</label>
+            <input
+              className='products__input'
+              type='text'
+              id='color'
+              value={color}
+              onChange={(e) => setColor(e.target.value)}
+            />
+          </div>
+          <div className='products__wrapper'>
+            <label htmlFor='description'>Description:</label>
+            <textarea
+              className='products__input'
+              id='description'
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
+            />
+          </div>
+          <button className='save-button' type='submit'>
+            Save
+          </button>
+        </form>
+      </div>
     </div>
   );
 };
