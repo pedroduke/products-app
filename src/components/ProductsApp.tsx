@@ -3,12 +3,12 @@ import { Routes, Route } from 'react-router-dom';
 
 import HomePage from '../pages/HomePage';
 import ProductDetailPage from '../pages/ProductDetailsPage';
-import EditProductPage from '../pages/EditProductPage';
+import EditProductPage from './EditProduct';
 
-import ProductInterface from '../interfaces/ProductInterface';
+import Product from '../interfaces/Product';
 
 const ProductsApp = () => {
-  const [productList, setProductList] = useState<ProductInterface[]>(
+  const [productList, setProductList] = useState<Product[]>(
     JSON.parse(localStorage.getItem('productList') || '[]')
   );
 
@@ -28,8 +28,8 @@ const ProductsApp = () => {
     localStorage.setItem('productList', JSON.stringify(productList));
   }, [productList]);
 
-  const updateProduct = (productDetails: ProductInterface) => {
-    const updateProductList: ProductInterface[] = productList.map((product) => {
+  const updateProduct = (productDetails: Product) => {
+    const updateProductList: Product[] = productList.map((product) => {
       if (product.id !== productDetails.id) {
         return product;
       }

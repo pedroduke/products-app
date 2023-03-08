@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom';
-import ProductInterface from '../interfaces/ProductInterface';
+import Product from '../interfaces/Product';
 
 type ProductTypes = {
-  productList: ProductInterface[];
+  productList: Product[];
 };
 
 const HomePage = ({ productList }: ProductTypes) => {

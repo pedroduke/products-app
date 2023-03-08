@@ -1,11 +1,11 @@
 import { useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 
-import ProductInterface from '../interfaces/ProductInterface';
+import Product from '../interfaces/Product';
 
 type ProductTypes = {
-  productList: ProductInterface[];
-  updateProduct: (productDetails: ProductInterface) => void;
+  productList: Product[];
+  updateProduct: (productDetails: Product) => void;
 };
 
 const ProductDetailPage = ({ productList, updateProduct }: ProductTypes) => {

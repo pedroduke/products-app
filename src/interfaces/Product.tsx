@@ -1,4 +1,4 @@
-interface ProductInterface {
+interface Product {
   id: string | undefined;
   price: number;
   name: string;
@@ -6,4 +6,4 @@ interface ProductInterface {
   description: string;
 }
 
-export default ProductInterface;
+export default Product;
