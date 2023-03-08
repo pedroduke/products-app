@@ -18,7 +18,7 @@ const ProductDetailPage = () => {
 
   return (
     <div>
-      <h2>Product Detail</h2>
+      <h2>Product Details</h2>
       <Link to={`/products/edit/${data.id}`}>Edit</Link>
       <div>Name: {data.name}</div>
       <div>Price: {data.price}</div>

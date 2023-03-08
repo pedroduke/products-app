@@ -36,7 +36,7 @@ const EditProduct = ({ productList, handleUpdate, refetch }: ProductTypes) => {
 
   return (
     <div>
-      <h2>Edit Product Detail</h2>
+      <h2>Edit Product Details</h2>
       <form onSubmit={handleSubmit}>
         <div>
           <label htmlFor='name'>Name:</label>
