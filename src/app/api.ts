@@ -8,7 +8,7 @@ export const api = createApi({
     baseUrl: 'http://localhost:5000/',
   }),
   endpoints: (builder) => ({
-    getProducts: builder.query<Product[], void>({
+    getProducts: builder.query<Product[], any>({
       query: () => 'products',
     }),
     getProductById: builder.query<Product, string>({

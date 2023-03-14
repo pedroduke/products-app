@@ -2,10 +2,10 @@
   "products": [
     {
       "id": "1",
-      "name": "Gasdsadasdosogle asdPixel 6 Pro",
-      "price": 2210,
+      "name": "xGoogle Pixel 6 Pro",
+      "price": 12,
       "color": "aasred",
-      "description": "sdasd"
+      "description": "sdasdass"
     },
     {
       "id": "2",
@@ -30,8 +30,8 @@
     },
     {
       "id": "5",
-      "name": "Samsung Galaxy Z Fold2",
-      "price": 10,
+      "name": "sSamsung Galaxy Z Fold2",
+      "price": 15,
       "color": "red",
       "description": ""
     },

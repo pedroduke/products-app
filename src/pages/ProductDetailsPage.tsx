@@ -1,12 +1,11 @@
 import { Link, useParams } from 'react-router-dom';
 import { useGetProductByIdQuery } from '../app/api';
+import { currency } from '../helpers/helpers';
 
 const ProductDetailPage = () => {
   const { id } = useParams();
 
-  const { data, isLoading, isError, refetch } = useGetProductByIdQuery(id!, {
-    refetchOnMountOrArgChange: true,
-  });
+  const { data, isLoading, isError } = useGetProductByIdQuery(id!);
 
   if (isLoading) {
     return <h4 className='info'>Loading...</h4>;
@@ -28,17 +27,13 @@ const ProductDetailPage = () => {
             <div>Name:</div>
             <span>{data.name}</span>
             <div>Price:</div>
-            <span>{data.price}$</span>
+            <span>{currency(data.price)}</span>
             <div>Color:</div>
             <span>{data.color}</span>
             <div>Description:</div>
             <span>{data.description}</span>
           </div>
-          <Link
-            to={'/'}
-            onClick={refetch}
-            className='products__card--details products__card--details--left'
-          >
+          <Link to={'/'} className='products__card--details products__card--details--left'>
             Home Page
           </Link>
         </div>

@@ -1,23 +1,19 @@
 import { useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 
-import Product from '../interfaces/Product';
+import { useUpdateProductMutation, useGetProductByIdQuery } from '../app/api';
 
-type ProductTypes = {
-  productList: Product[];
-  handleUpdate: (productDetails: Product) => void;
-  refetch: () => void;
-};
-
-const EditProduct = ({ productList, handleUpdate, refetch }: ProductTypes) => {
+const EditProduct = () => {
   const navigate = useNavigate();
   const { id } = useParams();
-  const product = productList.find((product) => product.id === id);
 
-  const [name, setName] = useState(product!.name);
-  const [price, setPrice] = useState(product!.price);
-  const [color, setColor] = useState(product!.color);
-  const [description, setDescription] = useState(product!.description);
+  const { data, refetch } = useGetProductByIdQuery(id!);
+  const [updateProduct] = useUpdateProductMutation();
+
+  const [name, setName] = useState(data!.name);
+  const [price, setPrice] = useState(data!.price);
+  const [color, setColor] = useState(data!.color);
+  const [description, setDescription] = useState(data!.description);
 
   const productDetails = {
     id,
@@ -29,9 +25,12 @@ const EditProduct = ({ productList, handleUpdate, refetch }: ProductTypes) => {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    handleUpdate(productDetails);
-    navigate(`/products/${product!.id}`);
-    refetch();
+    updateProduct({ data: productDetails })
+      .unwrap()
+      .then(() => {
+        navigate(`/products/${data!.id}`);
+        refetch();
+      });
   };
 
   return (
